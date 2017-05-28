@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <% request.setCharacterEncoding("UTF-8"); response.setCharacterEncoding("UTF-8"); %>
+    <%@include file="style/header.jsp" %>
+    <%@include file="style/menu.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<title>Anket Olustur</title>
+</head>
+<body>
+<div class="arkaplan">
+<% 
+
+	if(request.getSession().getAttribute("personelinfo") != null)
+	{
+
+%>
+	<form action="SoruOlustur.jsp" method="post" >
+		<table border="0">
+		<tr><td>Anket Sorusu :</td> <td><input type="text" name="soru"> </td></tr>
+		<tr> <td> Şık sayısı : </td> <td><input type="text" name="secenekSayisi"> </td> </tr>
+		<tr><th colspan="2"> <input type="submit" value="Tamam"> </th></tr>
+		</table>
+	</form>
+	
+<% 
+}
+	else
+	{
+		response.sendRedirect("login.jsp");
+	}
+
+
+%>
+</div>
+</body>
+</html>
